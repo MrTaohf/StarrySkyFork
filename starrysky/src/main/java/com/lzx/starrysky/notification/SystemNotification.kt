@@ -12,7 +12,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.RemoteException
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.MediaSessionCompat
@@ -198,7 +198,7 @@ constructor(private val mService: MusicService, private val mConstructor: Notifi
 
         val playPauseButtonPosition = addActions(notificationBuilder)
         notificationBuilder
-                .setStyle(android.support.v4.media.app.NotificationCompat.MediaStyle()
+                .setStyle(androidx.media.app.NotificationCompat.MediaStyle()
                         // show only play/pause in compact view
                         .setShowActionsInCompactView(playPauseButtonPosition)
                         .setShowCancelButton(true)

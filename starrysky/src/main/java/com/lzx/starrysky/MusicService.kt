@@ -12,7 +12,7 @@ import android.os.Handler
 import android.os.Message
 import android.os.RemoteException
 import android.support.v4.media.MediaBrowserCompat
-import android.support.v4.media.MediaBrowserServiceCompat
+import androidx.media.MediaBrowserServiceCompat
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.MediaSessionCompat
@@ -26,7 +26,7 @@ import com.lzx.starrysky.playback.QueueManager
 import java.lang.ref.WeakReference
 
 
-class MusicService : MediaBrowserServiceCompat(), QueueManager.MetadataUpdateListener, PlaybackManager.PlaybackServiceCallback {
+class MusicService : androidx.media.MediaBrowserServiceCompat(), QueueManager.MetadataUpdateListener, PlaybackManager.PlaybackServiceCallback {
 
     private var mediaSession: MediaSessionCompat? = null
     private var mediaController: MediaControllerCompat? = null
@@ -200,15 +200,15 @@ class MusicService : MediaBrowserServiceCompat(), QueueManager.MetadataUpdateLis
         }
     }
 
-    override fun onGetRoot(clientPackageName: String, clientUid: Int, rootHints: Bundle?): MediaBrowserServiceCompat.BrowserRoot? {
+    override fun onGetRoot(clientPackageName: String, clientUid: Int, rootHints: Bundle?): androidx.media.MediaBrowserServiceCompat.BrowserRoot? {
         return if (mPackageValidator!!.isKnownCaller(clientPackageName, clientUid)) {
-            MediaBrowserServiceCompat.BrowserRoot(STARRYSKY_BROWSABLE_ROOT, null)
+            androidx.media.MediaBrowserServiceCompat.BrowserRoot(STARRYSKY_BROWSABLE_ROOT, null)
         } else {
-            MediaBrowserServiceCompat.BrowserRoot(STARRYSKY_EMPTY_ROOT, null)
+            androidx.media.MediaBrowserServiceCompat.BrowserRoot(STARRYSKY_EMPTY_ROOT, null)
         }
     }
 
-    override fun onLoadChildren(parentId: String, result: MediaBrowserServiceCompat.Result<List<MediaBrowserCompat.MediaItem>>) {
+    override fun onLoadChildren(parentId: String, result: androidx.media.MediaBrowserServiceCompat.Result<List<MediaBrowserCompat.MediaItem>>) {
         //可以不做任何事情
     }
 
