@@ -4,14 +4,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
+version = "3.0.0"
+
 android {
     compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 208
-        versionName "2.0.8"
+        versionCode 300
+        versionName version
 
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
@@ -31,13 +33,12 @@ android {
     }
 
     publish {
-        repoName = 'StarrySky'
-        userOrg = 'lizixian'
-        groupId = 'com.lzx'
-        artifactId = 'StarrySkyKotlin'
-        publishVersion = '2.0.8'
-        desc = 'A Powerful and Streamline MusicLibrary'
-        website = "https://github.com/lizixian18/StarrySky"
+        userOrg = 'taohf'
+        groupId = 'com.taohf.starrysky'
+        artifactId = 'StarrySkyX'
+        publishVersion = "${version}"
+        desc = 'Custom TabLayout'
+        website = 'https://mrtaohf.github.io/'
     }
     androidExtensions {
         experimental = true
